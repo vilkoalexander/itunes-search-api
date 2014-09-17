@@ -1,0 +1,46 @@
+body {
+	background: url(http://subtlepatterns.com/patterns/crossword.png);
+}
+
+#header p {
+	text-align: center;
+	font-size:2em;
+}
+#artCover {
+	float: left;
+}
+#title {
+	display: inline-block;
+	
+	margin-left: 10px;
+
+}
+#title h3 {
+	margin: 0;
+}
+
+#options {
+	height: 286px;
+	overflow-y: scroll;
+}
+#options div {
+	display: inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+	cursor: pointer;
+} 
+
+#options div:hover {
+	box-shadow: 0 0 5px rgba(0,0,0,.9);
+}
+#options p {
+	font-size: 2em;
+}
+#preSearchDiv {
+	height: 104px;
+	text-align: center;
+}
+#noMutchDiv {
+	height: 104px;
+	text-align: center;
+}

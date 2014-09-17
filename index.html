@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="itunesApp">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="js/controllers.js"></script>
+	
+</head>
+
+
+<body ng-controller="ArtistListCtrl">
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-9 col-md-offset-1 well" id="header"><p>Find the music that you like</p></div>
+
+		<div class="col-md-3 col-md-offset-1 well">
+			<p>Write artist name here</p>
+			<input ng-model="artistName" placeholder="e.g. Metallica" ng-change="ajaxGet()" class="form-control">
+			
+		</div>
+
+		<div class="col-md-6 well"  ng-hide="preSearchDiv" id="preSearchDiv">
+			<h1>Here will be the search result</h1>
+		</div>
+
+		<div class="col-md-6 well"  id="noMutchDiv" ng-show="noMutchDiv">
+			<h1>Sorry, but we have no mutches </h1>
+		</div>
+
+		<div class="col-md-6 well" ng-show="showDiv">
+			<img ng-src='{{artImg}}' id="artCover">
+			<div id='title'>
+				<h3>Artist name {{artist}}</h3>
+				<em>Artist ID {{artId}}</em>
+				<p>Artist genre {{artGenre}}</p>
+				<a ng-href="{{artUrl}}" target="_blank">View on iTunes</a></br>
+				<audio controls src="{{prevUrl}}" controls="" id="">music</audio>
+			</div>
+		</div>
+
+
+		<div class="col-md-6 col-md-offset-4 well" ng-show="showDiv" id="options">
+			<p>View similar results on iTunes</p>
+			<div ng-repeat="item in resu">
+				<a ng-href="{{item.artistViewUrl}}" target="_blank" >
+    			<img ng-src="{{item.artworkUrl100}}" number="{{item}}" alt="View on iTunes">
+    			</a>
+   			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+
+</html>
